@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {
+    background-color: #FFFFFF;
+}
+.main {
+background-color: #FFFFFF;
+}
+.sign {
+	display: none;
+	background-color: #D2E4FE;
+}
+h1 {
+    color: #7a0000;
+    text-align: center;
+    padding: 20px;
+}
+
+h2 {
+    color: #7a0000;
+    text-align: center;
+}
+
+h3 {
+    color: #7a0000;
+    text-align: center;
+}
+
+.genheader {
+	color: #FFFFFF;
+    font-family: verdana;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+
+}
+
+.stopbuttons {
+    pointer-events: none;
+}
+
+.smheaddark {
+	color: #000000;
+    font-family: verdana;
+    font-size: 12px;
+    text-align: left;
+    font-weight: bold;
+    padding-left: 10px;
+}
+.smhead {
+	color: #FFFFFF;
+    font-family: verdana;
+    font-size: 14px;
+    text-align: left;
+    font-weight: bold;
+    padding-left: 10px;
+}
+.info {
+	font-family: verdana;
+    font-size: 10px;
+    text-align: center;
+    color: #000000;
+    font-weight: bold;
+}
+.par {
+    font-family: verdana;
+    font-size: 20px;
+    text-align: center;
+    color: #000000;
+    font-weight: bold;
+}
+.par2 {
+    font-family: verdana;
+    font-size: 12px;
+    text-align: center;
+    color: #000000;
+}
+.quicklinks {
+	background-color: #009389;
+    display: block;
+    height: 600px;
+    width: 150px;
+    float: left;
+    }
+    .quicklinks button {
+	color: #FFFFFF;
+    background-color: inherit;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    width: inherit;
+    transition: 0.3s;
+    font-family: verdana;
+    font-size: 12px;
+    text-align: left;
+}
+    .quicklinks button:hover {
+    background-color: #01C1B5;
+    color: black;
+}
+/* Style the tab */
+.tab {
+    overflow: hidden;
+    border: 1px solid #345CFE;
+    background-color: #345CFE;
+    display: block;
+    width: 100%;
+}
+.restab {
+    overflow: hidden;
+    border: 1px solid #7a0000;
+    background-color: #7a0000;
+    display: block;
+    width: 100%;
+}
+.sbox {
+	position: fixed;
+	left: 50%;
+	top: 50%;
+}
+.restab button {
+	color: #FFFFFF;
+    background-color: inherit;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+    font-family: verdana;
+    font-size: 12px;
+    text-align: center;
+    font-weight: bold;
+}
+.restab button:hover {
+    background-color: #BF1717;
+    color: white;
+    font-weight: bold;
+}
+
+.restab button.active {
+    background-color: #D20101;
+    color: white;
+    font-weight: bold;
+}
+
+/* Style the buttons that are used to open the tab content */
+.tab button {
+	color: #FFFFFF;
+    background-color: inherit;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+    font-family: verdana;
+    font-size: 12px;
+    text-align: center;
+    font-weight: bold;
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+    background-color: #8FA6FE;
+    color: black;
+    font-weight: bold;
+}
+.topbar {
+	background-color:#000000;
+    color: #FFFFFF;
+    display: block;
+    width: 100%;
+    height: 20px;
+    text-align:right;
+}
+.topbar button{
+	font-size: 12px;
+    color: #FFFFFF;
+    text-align:right;
+    background-color:inherit;
+    border: none;
+    cursor: pointer;
+}
+/* Create an active/current tablink class */
+.tab button.active {
+    background-color: #B7C5FD;
+    color: black;
+    font-weight: bold;
+}
+
+/* Style the tab content */
+.tabcontent {
+    display: none;
+    padding: 6px 12px;
+    border: 3px solid #FEC6C6;
+    animation: fadeEffect 1s; /* Fading effect takes 1 second */
+}
+
+.subtabcontent {
+    display: none;
+	padding: 6px 12px;
+    animation: fadeEffect 1s; /* Fading effect takes 1 second */
+}
+.fig {
+	display: block;
+    float: left;
+    margin: auto;
+    width: 45%;
+}
+.contactinfo {
+	display: block;
+    float: right;
+    width: 150px;
+    background-color: #FEFED5;
+    height: 600px;
+    color: #000000;
+}
+
+/* Go from zero to full opacity */
+@keyframes fadeEffect {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+</style>
+</head>
+<body id="bod">
+<div id="main">
+	<div class="topbar">
+		<button class="login" onclick="SignIn()">
+			Sign in
+		</button>
+	</div>
+	<h1> Welcome To The Website And Resume Of Sean Mongan</h1>
+	<h2>Take a look around!</h2>
+
+	<div class="tab">
+    	<button class="tablinks" onclick="OpenTab(event, 'Home')" onload="OpenTab(event, 'Home')">Home</button>
+  		<button class="tablinks" onclick="OpenTab(event, 'Physics and Mathematics')">Physics and Mathematics</button>
+  		<button class="tablinks" onclick="OpenTab(event,'Programming')">Programming</button>
+  		<button class="tablinks" onclick="OpenTab(event, 'Resumes and CV')">Resumes and CV</button>
+  		<button class="tablinks" onclick="OpenTab(event,'Endorsments')">Endorsments</button>
+  		<button class="tablinks" onclick="OpenTab(event,'Games')">Games</button>
+	</div>
+
+	<div class="quicklinks">
+		<p class="genheader">
+			Quick Links
+		</p>
+		<p class="smhead">
+			Games
+		</p>
+		<button class="tablinks" onclick="linktab(event,'Pong')">Pong</button>
+		<button class="tablinks" onclick="linktab (event,'Snake')">Snake</button>
+		<p class="smhead">Physics and Mathematics</p>
+		<button class="tablinks" onclick="linktab (event,'Simulation')">Simulation</button>
+		<button class="tablinks" onclick="linktab (event,'Modeling')">Modeling</button>
+	</div>
+	
+    <div id="Home" class="tabcontent">
+  		<h3>Home</h3>
+  		<p class="par2">
+        I made this website to showcase my programming skills in different programming languages. 
+		It is a place where all of my information is consilidated. 
+		If you have come here for more information on myself, click the resume tab. 
+		To see what kinds of physics and mathematics I work with, click the Physics  and Mathematics tab. 
+		To see what my programming skills are like, click the Programming tab. To see what others have to say about me, click the Endorsements tab. 
+		If you are here to just kill some time, click the Games tab.
+        </p>
+	</div>
+	<div id="Physics and Mathematics" class="tabcontent">
+  		<h3>Physics and Mathematics</h3>
+  		<p>
+        <ul>
+        	<li>Thesis on <a href="https://drive.google.com/open?id=1MbSGU3sAE7OxABWyht7Zz1aedb9e3E9L">Indirect K-edge RIXS of Quantum Magnets</a>. </li>
+            <li>Publication on <a href="http://iopscience.iop.org/article/10.1088/1361-648X/aa99c5">The RIXS Process</a> (full document can be read on <a href="https://arxiv.org/abs/1707.05057">arxiv</a>).</li>
+        	</ul>
+        </p> 
+        <div class="fig">
+        
+        </div>
+	</div>
+    
+	<div id="Programming" class="tabcontent">
+  		<h3>Programming</h3>
+        <p class="par2">
+        <ul>
+        <li><a href="https://github.com/smongan1">GitHub Profile</a></li>
+        <li>C++
+        <ul><li><a href="">Snake<a></li><li><a href="">Pong<a></li><li><a href="">Arduino Robot<a></li></ul></li>
+        </ul>
+        </p>
+	</div>
+	<div id="Resumes and CV" class="tabcontent">
+  		<h3>Resumes and CV</h3>
+  		<div class="restab">
+  			<button class="subtab" onclick="subtabf(event,'Programming Resume')">Programming Resume</button>
+    		<button class="subtab" onclick="subtabf(event,'Physics Resume')">Physics Resume</button>
+    		<button class="subtab" onclick="subtabf(event,'Curriculum Vitae (CV)')">Curriculum Vitae (CV)</button>
+  		</div>
+		<div id="Programming Resume" class="subtabcontent">
+		<p class="par2">
+		This is my resumeThis is my resumeThis is my resumeThis is my resume
+		</p>
+		</div>
+		
+		<div id="Physics Resume" class="subtabcontent">
+		<p class="par2">
+		This is my resumeThis is my resumeThis is my resumeThis is my resume
+		</p>
+		</div>
+		
+		<div id="Curriculum Vitae (CV)" class="subtabcontent">
+		<p class="par2">
+		This is my resumeThis is my resumeThis is my resumeThis is my resume
+		</p>
+		</div>
+	</div>
+    
+	<div id="Endorsments" class="tabcontent">
+  		<h3>Endorsments</h3>
+        <h2 class="smheaddark">To Leave an Endorsement <a onclick="SignIn()"> Sign In</a></h2>
+        <p>
+        	
+        	
+        </p>
+	</div>
+	<div id="Games" class="tabcontent">
+  		<h3>Games</h3>
+	</div>
+	<div class="contactinfo">
+		<p class="par">Contact Info</p>
+		<p class="info">Phone: (706) 691-9830</p>
+		<p class="info">email: smongan1@gmail.com</p>
+		<p class="info">Address: 4360 Satolah Rdg, Evans, GA, 30809</p>
+	</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<script>
+function OpenTab(evt, TabName) {
+    var i, tabcontent, tablinks;
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+    }
+    tablinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+    var w = window.innerWidth;
+    document.getElementById(TabName).style.display = "block";
+    document.getElementById(TabName).style.float = "left";
+    var k=parseInt(w,10)-302-61;
+    if(k<150)
+    {
+    k=150;
+    }
+    var m=k.toString()+"px";
+    document.getElementById(TabName).style.width = m;
+    evt.currentTarget.className += " active";
+    }
+</script>
+
+<script>
+function HomeTab(evt, TabName) {
+    var i, tablinks;
+	var num=-1;
+    tablinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+		if(tablinks[i].id === "Home")
+		{
+		num=i;
+		}
+    }
+    var w = window.innerWidth;
+    document.getElementById(TabName).style.display = "block";
+    document.getElementById(TabName).style.float = "left";
+    var k=parseInt(w,10)-302-61;
+    if(k<150)
+    {
+    k=150;
+    }
+    var m=k.toString()+"px";
+    document.getElementById(TabName).style.width = m;
+	if(num!==-1)
+	{
+    tablinks[num].className += " active";
+    }
+    }
+</script>
+
+<script>
+function subtabf(evt, TabName) {
+    var i, tabcontent, tablinks;
+    tabcontent = document.getElementsByClassName("subtabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+    }
+    tablinks = document.getElementsByClassName("subtab");
+    for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+    document.getElementById(TabName).style.display = "block";
+    document.getElementById(TabName).style.float = "left";
+    evt.currentTarget.className += " active";
+    }
+</script>
+
+<script 
+src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
+</script>
+
+<script>
+function SignIn(){
+document.getElementById('main').style.opacity = ".5";
+document.getElementById('main').className += " stopbuttons";
+document.getElementById('main').style.cursor = "default";
+document.getElementById('sign').style.display = "block";
+document.getElementById('sign').style.position = "fixed";
+document.getElementById('sign').style.margin = "0 35% 0 35%";
+document.getElementById('sign').style.width = "300px";
+document.getElementById('sign').style.height = "200px";
+document.getElementById('sign').style.opacity = "1";
+}
+</script>
+
+<script>
+$(document).ready(function(){
+    $(window).resize(function(){
+        var num=[];
+        var x="";
+        tablinks = document.getElementsByClassName("tablinks");
+    	for (i = 0; i < tablinks.length; i++) 
+        {        	if(tablinks[i].className ==="tablinks active")
+            	{
+                num=i;
+            	}
+        }
+        
+        if(num!==-1)
+        {	
+        	var tname=tablinks[num].innerHTML;
+        	var w = window.innerWidth;
+            if(parseInt(w,10)<513)
+            {
+            	w="513";
+            }
+            var bdwdth=parseInt(w,10)-31
+            document.body.style.width=bdwdth.toString()+"px";
+    		document.getElementById(tname).style.display = "block";
+    		document.getElementById(tname).style.float = "left";
+    		var k=parseInt(w,10)-302-61;
+    		var m=k.toString()+"px";
+    		document.getElementById(tname).style.width = m;
+        }
+    });
+});
+</script>
+
+</div>
+<div class="sign" id="sign">
+<p style="text-align:center;font-weight:bold;">
+Username
+</p>
+<div style="background-color:white;width:30%;display:block;position:absolute;left: 35%;">
+
+</div>
+<p style="text-align:center;position:relative;top:30px;font-weight:bold;">
+Password
+</p>
+<div>
+</div>
+<div>
+</div>
+<div>
+</div>
+</div>
+</body>
+</html>
